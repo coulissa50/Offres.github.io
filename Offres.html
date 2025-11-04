@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solutions Géospatiales</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -9,67 +11,70 @@
             --secondary: #3B8B8C;
             --accent1: #5ABFBF;
             --accent2: #84DCC6;
-            --background: #E8F0F7;
+            --background: #e0e5ec;
             --text: #1A2E49;
         }
 
         body {
             font-family: 'Book Antiqua', serif;
-            background: var(--background) !important;
+            background: var(--background);
             margin: 0;
             padding: 20px;
             color: var(--text);
         }
 
         .container {
-            max-width: 1000px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 15px;
         }
 
         .card {
-            background: var(--background) !important;
-            border-radius: 12px;
-            padding: 15px;
+            background: var(--background);
+            border-radius: 20px;
+            padding: 25px 15px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 5px 5px 10px #c2c8d0, 
-                       -5px -5px 10px #ffffff;
-            min-height: 120px;
+            box-shadow: 8px 8px 15px #a3b1c6, 
+                       -8px -8px 15px #ffffff;
+            min-height: 140px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: inset 5px 5px 8px #c2c8d0, 
-                       inset -5px -5px 8px #ffffff;
+            box-shadow: inset 8px 8px 15px #a3b1c6, 
+                       inset -8 -8px 15px #ffffff;
         }
 
         .card.active {
-            box-shadow: inset 5px 5px 12px #b2b8c0, 
-                       inset -5px -5px 12px #ffffff;
+            box-shadow: inset 8px 8px 15px #a3b1c6, 
+                       inset -8px -8px 15px #ffffff;
         }
 
         .card i {
-            font-size: 1.8em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            margin-bottom: 15px;
             color: var(--primary);
             transition: color 0.3s ease;
         }
 
         .card h2 {
             margin: 0;
-            font-size: 0.9em;
-            line-height: 1.3;
+            font-size: 1em;
+            line-height: 1.4;
+            font-weight: 600;
         }
 
         .content {
@@ -77,19 +82,37 @@
             height: 0;
             padding: 0;
             margin-top: 0;
-            border-radius: 12px;
-            background: var(--background) !important;
-            box-shadow: 5px 5px 10px #c2c8d0, 
-                       -5px -5px 10px #ffffff;
+            border-radius: 20px;
+            background: var(--background);
+            box-shadow: 8px 8px 15px #a3b1c6, 
+                       -8px -8px 15px #ffffff;
             overflow: hidden;
-            transition: height 0.4s ease-out, visibility 0.4s ease-out;
+            transition: height 0.4s ease-out, visibility 0.4s ease-out, padding 0.4s ease-out;
         }
 
         .content.active {
             visibility: visible;
             height: auto;
-            padding: 20px;
-            margin-top: 15px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .content h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content h3 i {
+            font-size: 1.3em;
+        }
+
+        .content p {
+            line-height: 1.6;
+            font-size: 1.05em;
         }
 
         .card[data-content="1"] { --theme: var(--accent1); }
@@ -102,28 +125,97 @@
         .card.active i {
             color: var(--theme);
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .card {
+                padding: 20px 10px;
+                min-height: 120px;
+                border-radius: 15px;
+            }
+
+            .card i {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            .card h2 {
+                font-size: 0.9em;
+            }
+
+            .content.active {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .content h3 {
+                font-size: 1.1em;
+            }
+
+            .content p {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card {
+                padding: 18px 10px;
+                min-height: 100px;
+            }
+
+            .card i {
+                font-size: 1.8em;
+            }
+
+            .card h2 {
+                font-size: 0.85em;
+            }
+
+            .content.active {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="grid">
-            <div class="card" data-content="1">
+            <div class="card" data-content="1" data-link="https://exemple.com/numerisation-3d">
                 <i class="fas fa-cube"></i>
                 <h2>Numérisation 3D</h2>
             </div>
-            <div class="card" data-content="2">
+            <div class="card" data-content="2" data-link="https://exemple.com/cartographie-web">
                 <i class="fas fa-map-marked-alt"></i>
                 <h2>Cartographie web interactive</h2>
             </div>
-            <div class="card" data-content="3">
+            <div class="card" data-content="3" data-link="https://exemple.com/analyse-satellitaire">
                 <i class="fas fa-satellite"></i>
                 <h2>Analyse d'image satellitaire</h2>
             </div>
-            <div class="card" data-content="4">
+            <div class="card" data-content="4" data-link="https://exemple.com/analyses-spatiales">
                 <i class="fas fa-project-diagram"></i>
                 <h2>Analyses spatiales et modélisation</h2>
             </div>
-            <div class="card" data-content="5">
+            <div class="card" data-content="5" data-link="https://exemple.com/sig">
                 <i class="fas fa-layer-group"></i>
                 <h2>Systèmes d'information géographique</h2>
             </div>
@@ -151,7 +243,7 @@
         </div>
     </div>
 
-    <script defer>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.card');
             const contents = document.querySelectorAll('.content');
@@ -165,7 +257,17 @@
             }
 
             cards.forEach(card => {
-                card.addEventListener('click', () => activateContent(card.dataset.content));
+                card.addEventListener('click', (e) => {
+                    // Afficher le contenu
+                    activateContent(card.dataset.content);
+                    
+                    // Rediriger vers le lien si disponible
+                    if (card.dataset.link) {
+                        setTimeout(() => {
+                            window.location.href = card.dataset.link;
+                        }, 300);
+                    }
+                });
             });
 
             activateContent('1');
