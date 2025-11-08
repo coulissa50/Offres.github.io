@@ -298,7 +298,7 @@
                     e.stopPropagation();
                     const content = btn.closest('.content');
                     if (content && content.dataset.link) {
-                        window.location.href = content.dataset.link;
+                        window.open(content.dataset.link, '_blank');
                     }
                 });
             });
