@@ -90,13 +90,7 @@
             background: var(--background);
             box-shadow: none;
             overflow: hidden;
-            transition: height 0.4s ease-out, visibility 0.4s ease-out, padding 0.4s ease-out, box-shadow 0.3s ease;
-        }
-
-        .content:hover {
-            transform: translateY(-2px);
-            box-shadow: 10px 10px 18px #a3b1c6, 
-                       -10px -10px 18px #ffffff;
+            transition: height 0.4s ease-out, visibility 0.4s ease-out, padding 0.4s ease-out;
         }
 
         .content.active {
@@ -104,8 +98,7 @@
             height: auto;
             padding: 30px;
             margin-top: 30px;
-            box-shadow: 8px 8px 15px #a3b1c6, 
-                       -8px -8px 15px #ffffff;
+            box-shadow: none;
         }
 
         .content h3 {
@@ -136,8 +129,7 @@
             border-radius: 10px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 5px 5px 10px #a3b1c6, 
-                       -5px -5px 10px #ffffff;
+            box-shadow: none;
             border: none;
             cursor: pointer;
             font-family: 'Book Antiqua', serif;
@@ -146,8 +138,8 @@
 
         .btn-more:hover {
             transform: translateY(-2px);
-            box-shadow: 7px 7px 12px #a3b1c6, 
-                       -7px -7px 12px #ffffff;
+            box-shadow: 5px 5px 10px #a3b1c6, 
+                       -5px -5px 10px #ffffff;
             color: var(--secondary);
         }
 
